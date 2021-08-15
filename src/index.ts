@@ -1,4 +1,3 @@
-import { ElementFlags } from "typescript";
 import "./style.scss";
 
 function createNavElement(name: string) {
@@ -9,7 +8,7 @@ function createNavElement(name: string) {
 
 function hamMenu() {
     const element = document.createElement('div');
-    element.className = 'navbar-ham';
+    element.className = 'navbar__ham';
     element.appendChild(document.createElement('span'));
     element.appendChild(document.createElement('span'));
     element.appendChild(document.createElement('span'));
@@ -21,7 +20,7 @@ function hamMenu() {
 
 function rightNavBarSide(clc: Array<HTMLElement>) {
     const element = document.createElement('div');
-    element.className = 'navbar-right';
+    element.className = 'navbar__right';
     clc.map(e => {
         element.appendChild(e);
     });
@@ -30,7 +29,7 @@ function rightNavBarSide(clc: Array<HTMLElement>) {
 
 function navBar() {
     const navContainer = document.createElement('div');
-    navContainer.className = 'navbar-container';
+    navContainer.className = 'navbar__container';
 
     const element = document.createElement('div');
 
@@ -51,7 +50,7 @@ function navBar() {
 
     const hmenu = hamMenu();
     hmenu.onmouseover = function(e) {
-            rbar.style.display = 'block';
+            rbar.style.display = 'inline';
             rbar.style.position = 'absolute';
             rbar.style.left = e.clientX.toString() + 'px';
             rbar.style.top = e.clientY.toString() + 'px';
@@ -63,7 +62,10 @@ function navBar() {
     }
 
     hmenu.onmouseout = function(e) {
-            rbar.style.display = 'none';    
+        rbar.style.display = '';
+        rbar.style.position = '';
+        rbar.style.left = '';
+        rbar.style.top = '';
     };
 
     element.appendChild(hmenu);
@@ -75,10 +77,10 @@ function navBar() {
 
 function projectName() {
     const element = document.createElement('div');
-    element.className = 'projectname';
+    element.className = 'project';
 
     const prtitle = document.createElement('div');
-    prtitle.className = 'title'
+    prtitle.className = 'project__title'
     prtitle.innerHTML = 'Project Title';
 
     element.appendChild(prtitle);
@@ -94,18 +96,18 @@ function contactUs() {
 
     element.appendChild(subElement);
 
-    return element;
+    return [element, subElement];
 }
 
 
 function subtitle() {
     const element = document.createElement('div');
-    element.className = 'subtitle-container';
+    element.className = 'subtitlecontainer';
 
 
     const sub = document.createElement('div');
     sub.innerHTML = 'Subtitle';
-    sub.className = 'title';
+    sub.className = 'subtitlecontainer__title';
 
     const ipsum = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`;
 
@@ -113,7 +115,7 @@ function subtitle() {
     subblock1.className = 'subblock';
 
     const subblock2 = document.createElement('div');
-    subblock2.className = 'subblock reverse';
+    subblock2.className = 'subblock subblock__reverse';
 
     const img1 = document.createElement('img');
     img1.src = 'https://i.stack.imgur.com/mwFzF.png';
@@ -138,12 +140,12 @@ function subtitle() {
 
 function contactForm() {
     const el = document.createElement('div');
-    el.className = 'contact-form__container';
+    el.className = 'contactform__container';
 
     const title = document.createElement('div');
 
     title.innerHTML = 'Contact Form';
-    title.className = 'title';
+    title.className = 'contactform__container__title';
 
     const frm = document.createElement('form');
 
@@ -154,6 +156,12 @@ function contactForm() {
     inpt3.innerHTML = 'Submit';
 
     frm.append(inpt, inpt1, inpt2, inpt3);
+    frm.onsubmit = function(e) {
+        e.preventDefault();
+        console.log(inpt.value);
+        console.log(inpt1.value);
+        console.log(inpt2.value);
+    }
 
     el.append(title, frm);
 
@@ -193,8 +201,6 @@ function footer() {
     const phone = createLineContainer('Phone', ['Link3', 'Link4']);
     const email = createLineContainer('Email', ['Link5', 'Link6']);
 
-   
-
     const hline = document.createElement('hr');
 
     const copyright = document.createElement('div');
@@ -216,17 +222,25 @@ function main() {
     subcontainer.className = 'subappcontainer';
 
     const proj = projectName();
-    proj.appendChild(contactUs());
+
+
+    const [el, contact] = contactUs(); 
+
+    proj.appendChild(el);
     element.appendChild(proj);
 
+    const cForm = contactForm();
 
+    contact.onclick = function(e) {
+        cForm.scrollIntoView();
+    }
 
 
     subcontainer.append(
         navBar(), 
         proj, 
         subtitle(), 
-        contactForm(),
+        cForm,
         footer()
     );
     element.append(subcontainer);
