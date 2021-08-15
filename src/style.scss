@@ -1,0 +1,289 @@
+
+body {
+    overflow-x: hidden;
+}
+
+.navbar-container {
+    position: sticky;
+    top: 1em;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar-right {
+    display: inline-flex;
+    justify-content: space-between;
+    // margin-right: 15em;
+}
+
+.navbar-ham {
+    display: none
+}
+
+.navbar-right div {
+    margin-right: 1em;
+}
+
+.navbar-right :last-child {
+    margin-right: 0;
+}
+
+.appcontainer {
+    // font-size: 3em;
+    // transform: translateX(50%);
+
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+.subappcontainer {
+    // font-size: 3em;
+    // transform: translateX(-50%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.projectname {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top:3em;
+    margin-bottom:3em;
+    height: 29vmax;
+    background: url(https://linuxhint.com/wp-content/uploads/2018/03/Skyline.jpg)
+    no-repeat center center;
+}
+
+img {
+
+    height: 23vmax;
+}
+
+.projectname .title {
+
+    margin-bottom: 15px;
+}
+
+
+.subtitle-container .title {
+    display: flex;
+    justify-content: center;
+}
+
+.subtitle-container img {
+    max-height: 25em;
+}
+
+.subblock {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 1em;
+}
+
+
+.subblock.reverse div {
+    margin-left: 11em;
+}
+
+.subblock div {
+    max-width: 17em;
+}
+
+.contact-form__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.contact-form__container {
+    padding: 0 !important;
+    right: 0 !important;
+    // border: 0 none !important;
+    margin-bottom: 1em;
+}
+
+.title {
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+
+.contact-form__container  {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;   
+}
+
+.contact-form__container .title  {
+    margin-bottom: 1em;
+}
+
+.contact-form__container form {
+    padding: 0 !important;
+    right: 0 !important;
+    border: 0 !important;
+    text-align: right;
+}
+
+.contact-form__container input  {
+    display: block;
+    margin-bottom: 1em;
+    min-width: 100%;
+    padding: 0 !important;
+    right: 0 !important;
+}
+
+.contact-form__container textarea  {
+    height:11em;
+    margin-bottom: 1em;
+    min-width: 100%;
+    padding: 0px !important;
+    right: 0 !important;
+    border: 1px solid !important;
+}
+
+.contact-form__container button  {
+}
+
+.footer {
+    background-color: grey;
+    color: white;
+} 
+
+.footer__container {
+
+    padding: 1.5em;
+    margin-left: 15em;
+    margin-right: 15em;
+}
+
+.footer__container .copyright {
+
+    text-align: center;
+}
+
+.footer hr {
+    margin-top: 3em;
+    // width: 54%;
+}
+
+.line__container {
+    display: flex;
+    justify-content: space-between;
+    // align-items: center;
+}
+
+
+.line__container .links {
+    display: flex;
+    margin-bottom: .5em;
+}
+
+
+
+.line__container .links :nth-child(odd) {
+    margin-right: 1em;
+}
+
+
+@media (max-width: 768px) {
+
+
+    .appcontainer {
+        margin-left: 1.5em;
+        margin-right: 1.5em;
+    }
+
+    .navbar-right {
+        display: none;
+    }
+
+    .navbar-ham {
+        display: block;
+        // font-size: 0;
+    }
+
+    .navbar-ham span {
+        display: block;
+        min-width: 35px;
+        min-height: 5px;
+        background-color: black;
+        margin: 6px 0;
+    }
+
+    .subblock {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1em;
+        // max-width: 5%;
+    }
+
+    .subblock img {
+        max-width: 35vmax;
+        margin-bottoM: 1em;
+    }
+
+    .subblock div {
+        font-size: 1em;
+    }
+
+    .subblock.reverse div {
+        order: 2;
+        margin-left: 0;
+    }
+
+    .contact-form__container form {
+        width: 55%;
+        margin-bottom: 1em;
+    }
+
+    .footer__container {
+        
+        margin-left: 3em;
+        margin-right: 3em;
+    }
+    
+    .title {
+        font-size: 1.5em;
+    }
+
+}
+
+@media (max-width: 375px) {
+
+
+    .appcontainer {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .contact-form__container form {
+        width: 85%;
+        margin-bottom: 1em;
+    }
+
+    .footer__container {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .footer__container hr {
+        margin-top: 1em;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+    
+}
+
+
+
